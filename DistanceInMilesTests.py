@@ -6,7 +6,7 @@ from UnittestAnnotations import should_raise
 class DistanceInMilesTests(unittest.TestCase):
 
     @istest
-    def raises_an_exception_when_attempting_to_convert_a_negative_number_using_try(self):
+    def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_try(self):
         try:
             DistanceInMiles.calculated_from(-5, "miles")
             self.fail("should raise an exception when converting from negative number")
@@ -14,12 +14,12 @@ class DistanceInMilesTests(unittest.TestCase):
             pass
 
     @istest
-    def raises_an_exception_when_attempting_to_convert_a_negative_number_using_assertion(self):
+    def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_assertion(self):
         self.assertRaises(NegativeNumberException, DistanceInMiles.calculated_from, -5, "miles")
 
     @istest
     @should_raise(NegativeNumberException)
-    def raises_an_exception_when_attempting_to_convert_a_negative_number_using_annotation(self):
+    def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_annotation(self):
         DistanceInMiles.calculated_from(-5, "miles")
 
     @istest
