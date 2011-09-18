@@ -8,24 +8,24 @@ class DistanceInMilesTests(unittest.TestCase):
     @istest
     def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_try(self):
         try:
-            DistanceInMiles.calculated_from(-5, "miles")
+            DistanceInMiles.calculated_from(-5, "km")
             self.fail("should raise an exception when converting from negative number")
         except:
             pass
 
     @istest
     def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_assertion(self):
-        self.assertRaises(NegativeNumberException, DistanceInMiles.calculated_from, -5, "miles")
+        self.assertRaises(NegativeNumberException, DistanceInMiles.calculated_from, -5, "km")
 
     @istest
     @should_raise(NegativeNumberException)
     def should_raise_an_exception_when_attempting_to_convert_a_negative_number_using_annotation(self):
-        DistanceInMiles.calculated_from(-5, "miles")
+        DistanceInMiles.calculated_from(-5, "km")
 
     @istest
     @should_raise(NegativeNumberException)
     def should_not_be_creatable_using_negative_values(self):
-        DistanceInMiles(-5, "miles")
+        DistanceInMiles(-5, "km")
 
     @istest
     def should_return_the_same_value_whenConverting_miles_to_miles(self):
